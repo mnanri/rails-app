@@ -3,7 +3,14 @@
       <%= link_to "WorkSpace", root_path, id: "logo" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home", root_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.email, '#'%></li>
+            <li><%= link_to "Seitting", edit_user_registration_path %>
+            <li><%= link_to "SignOut", destroy_user_session_path, data: { turbo_method: :delete } %>
+          <% else %>
+            <li><%= link_to "SignIn", new_user_session_path %></li>
+            <li><%= link_to "SignUp", new_user_registration_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
