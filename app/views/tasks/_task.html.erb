@@ -1,7 +1,9 @@
-<li id="micropost-<%= micropost.id %>">
-  <span class="title"><%= micropost.title %>
-  <span class="content"><%= micropost.content %></span>
-  <span class="timestamp">
-    Posted by <%= link_to micropost.user.email, "#" %> :<%= time_ago_in_words(micropost.created_at) %> ago.
-  </span>
-</li>
+<% if task.title != nil %>
+  <li id="task-<%= task.id %>">
+    <span class="title"><b><%= task.title %></b><br>
+    <span class="content"><u><%= task.content %></u></span><br>
+    <span class="timestamp">
+      Created by <%= link_to task.user.email, "#" %> : <%= task.created_at %>
+    </span>
+  </li>
+<% end %>

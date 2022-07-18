@@ -9,13 +9,19 @@
   <% end %>
 </div>
 <% if user_signed_in? %>
-  <section class="task_form center">
+  <section class="center">
     <%= render 'tasks/task_form' %>
   </section>
-  <% if @user.tasks.any? %>
-    <h2>Remaining Task : <%= @user.tasks.count %></h2>
-    <ol class="tasks">
-      <%#= render @tasks %>
-    </ol>
-  <% end %>
+  <section>
+    <% if @user.tasks.count > 0 %>
+      <h2>Remaining Task : <%= @user.tasks.count %></h2>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <ol class="col-md-8 task">
+          <%= render @tasks %>
+        </ol>
+        <div class="col-md-2"></div>
+      </div>
+    <% end %>
+  </section>
 <% end %>

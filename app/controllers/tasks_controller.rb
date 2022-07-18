@@ -5,6 +5,7 @@ class TasksController < ApplicationController
       redirect_to root_url
     else
       render 'pages/home'
+    end
   end
 
   def edit

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
       @inverse = true
     end
     @user = current_user
-    @task = current_user.tasks.build if user_signed_in?
-    #@tasks = @user.tasks
+    @task = @user.tasks.build if user_signed_in?
+    @tasks = @user.tasks if user_signed_in?
   end
 end
